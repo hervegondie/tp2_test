@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Data-Science-API-FastAPI-Docker
  
 This project demonstrates a simple yet powerful API built using FastAPI for serving machine learning predictions. The API is containerized using Docker and is ready for deployment in any environment.
@@ -77,3 +78,6 @@ Technologies Used
 
 
 
+=======
+# tp2_test
+>>>>>>> 3f19107ef68d802f60cb195b30b7051fc0df5df2
