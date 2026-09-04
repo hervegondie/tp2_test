@@ -33,5 +33,5 @@ jobs:
       # Tests unitaires / async
       - name: Run tests
         run: |
-          export PYTHONPATH=$(pwd)
+          export PYTHONPATH=$(pwd)/app
           pytest --maxfail=1 --disable-warnings -q
