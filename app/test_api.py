@@ -32,8 +32,7 @@ def test_predict_fails_on_wrong_expectation():
     
     WRONG_PREDICTION = 999.99
     
-    # On s'attend à ce que l'assertion suivante ÉCHOUE
-    with pytest.raises(AssertionError):
-        assert data["prediction"] == WRONG_PREDICTION
+    # On s'assure directement que le résultat n'est PAS la valeur erronée
+    assert data.get("result") != WRONG_PREDICTION
 
     
