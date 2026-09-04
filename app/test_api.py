@@ -22,7 +22,7 @@ def test_predict_success():
  
  
  
- client = TestClient(app)
+    client = TestClient(app)
 
 def test_predict_fails_on_wrong_expectation():
     payload = {"features": [1.0, 2.0, 3.0]}
