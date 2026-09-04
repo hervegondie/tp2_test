@@ -21,7 +21,7 @@ def test_predict_success():
     assert result == expected_output
  
  
-    client = TestClient(app)
+client = TestClient(app)
 
 def test_predict_fails_on_wrong_expectation():
     payload = {"features": [1.0, 2.0, 3.0]}
