@@ -36,11 +36,6 @@ def test_predict_fails_on_wrong_expectation():
     assert data.get("result") != WRONG_PREDICTION
 
     
-
-import pytest
-from fastapi.testclient import TestClient
-from main import app # Remplacez "main" par le nom de votre fichier principal
-
 client = TestClient(app)
 
 # 1. Test : Champ "features" manquant dans le JSON
