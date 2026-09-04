@@ -36,3 +36,28 @@ def test_predict_fails_on_wrong_expectation():
     assert data.get("result") != WRONG_PREDICTION
 
     
+
+import pytest
+from fastapi.testclient import TestClient
+from main import app # Remplacez "main" par le nom de votre fichier principal
+
+client = TestClient(app)
+
+# 1. Test : Champ "features" manquant dans le JSON
+def test_predict_missing_features_field():
+    response = client.post(
+        "/predict", # Remplacez par votre route
+        json={"wrong_field": [3.5, 1.2, 4.9]}
+    )
+    assert response.status_code == 422
+    assert "detail" in response.json()
+
+# 2. Test : JSON syntaxiquement invalide (tableau brut au lieu d'un objet JSON)
+def test_predict_invalid_json_format():
+    response = client.post(
+        "/predict",
+        headers={"Content-Type": "application/json"},
+        content='{[3.5, 1.2, 4.9]}' # Chaine brute avec erreur de syntaxe JSON
+    )
+    # FastAPI/Starlette renvoie un code 422 ou 400 selon l'erreur de parsing
+    assert response.status_code in [400, 422]
